@@ -74,9 +74,6 @@ import org.maxgamer.quickshop.database.DatabaseManager;
 import org.maxgamer.quickshop.database.MySQLCore;
 import org.maxgamer.quickshop.database.SQLiteCore;
 import org.maxgamer.quickshop.database.SimpleDatabaseHelper;
-import org.maxgamer.quickshop.economy.Economy_GemsEconomy;
-import org.maxgamer.quickshop.economy.Economy_TNE;
-import org.maxgamer.quickshop.economy.Economy_Vault;
 import org.maxgamer.quickshop.integration.SimpleIntegrationManager;
 import org.maxgamer.quickshop.integration.worldguard.WorldGuardIntegration;
 import org.maxgamer.quickshop.listener.BlockListener;
@@ -564,51 +561,6 @@ public class QuickShop extends JavaPlugin implements QuickShopAPI {
                 case UNKNOWN:
                     setupBootError(new BootError(this.getLogger(), "Can't load the Economy provider, invaild value in config.yml."), true);
                     return false;
-                case VAULT:
-                    economy = new Economy_Vault(this);
-                    Util.debugLog("Now using the Vault economy system.");
-                    if (getConfig().getDouble("tax", 0.0d) > 0) {
-                        try {
-                            String taxAccount = getConfig().getString("tax-account", "tax");
-                            if (!taxAccount.isEmpty()) {
-                                OfflinePlayer tax;
-                                if (Util.isUUID(taxAccount)) {
-                                    tax = PlayerFinder.findOfflinePlayerByUUID(UUID.fromString(taxAccount));
-                                } else {
-                                    tax = PlayerFinder.findOfflinePlayerByUUID(PlayerFinder.findUUIDByName(Objects.requireNonNull(taxAccount), true, true));
-                                }
-                                Economy_Vault vault = (Economy_Vault) economy;
-                                if (vault.isValid()) {
-                                    if (!Objects.requireNonNull(vault.getVault()).hasAccount(tax)) {
-                                        try {
-                                            Util.debugLog("Tax account not exists! Creating...");
-                                            getLogger().warning("QuickShop detected tax account not exists, we're trying to create one. If you see any errors, please change tax-account in config.yml to server owner in-game username");
-                                            if (vault.getVault().createPlayerAccount(tax)) {
-                                                getLogger().info("Tax account created.");
-                                            } else {
-                                                getLogger().warning("Cannot to create tax-account,  please change tax-account in config.yml to server owner in-game username");
-                                            }
-                                        } catch (Exception ignored) {
-                                        }
-                                        if (!vault.getVault().hasAccount(tax)) {
-                                            getLogger().warning("Tax account's player never played this server before and failed to create one, that may cause server lagg or economy system error, you should change that name. But if this warning not cause any issues, you can safety ignore this.");
-                                        }
-                                    }
-
-                                }
-                            }
-                        } catch (Exception ignored) {
-                            Util.debugLog("Failed to fix account issue.");
-                        }
-                    }
-                    break;
-                case GEMS_ECONOMY:
-                    economy = new Economy_GemsEconomy(this);
-                    Util.debugLog("Now using the GemsEconomy economy system.");
-                    break;
-                case TNE:
-                    economy = new Economy_TNE(this);
-                    Util.debugLog("Now using the TNE economy system.");
                     break;
                 default:
                     Util.debugLog("No any economy provider selected.");

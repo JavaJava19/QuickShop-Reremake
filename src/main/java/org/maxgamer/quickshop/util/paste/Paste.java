@@ -31,7 +31,6 @@ import org.maxgamer.quickshop.QuickShop;
 import org.maxgamer.quickshop.api.database.WarpedResultSet;
 import org.maxgamer.quickshop.api.economy.AbstractEconomy;
 import org.maxgamer.quickshop.api.economy.EconomyCore;
-import org.maxgamer.quickshop.economy.Economy_Vault;
 import org.maxgamer.quickshop.util.MsgUtil;
 import org.maxgamer.quickshop.util.ReflectFactory;
 import org.maxgamer.quickshop.util.Util;
@@ -86,21 +85,8 @@ public class Paste {
         finalReport.append("\tEconomy System: ");
         try {
             EconomyCore economyCore = plugin.getEconomy();
-            //noinspection SwitchStatementWithTooFewBranches
-            switch (AbstractEconomy.getNowUsing()) {
-                case VAULT:
-                    finalReport
-                            .append("Vault")
-                            .append("%")
-                            .append(((Economy_Vault) economyCore).getProviderName());
-                    break;
-//                case RESERVE:
-//                    finalReport.append("Reserve").append("%").append("No details");
-//                    break;
-                default:
-                    finalReport.append("Unknown").append("%").append("Unknown error");
-                    break;
-            }
+            AbstractEconomy.getNowUsing();
+            finalReport.append("Unknown").append("%").append("Unknown error");
         } catch (Exception e) {
             finalReport.append("Unknown").append("%").append("Unknown error");
         }
