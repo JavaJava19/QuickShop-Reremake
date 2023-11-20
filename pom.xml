@@ -850,6 +850,13 @@
             <artifactId>jackson-annotations</artifactId>
             <version>2.16.0</version>
         </dependency>
+        <dependency>
+            <groupId>gg.jps</groupId>
+            <artifactId>JpsCore</artifactId>
+            <version>1.11.3</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/jpscore-1.11.3.jar</systemPath>
+        </dependency>
 
     </dependencies>
 </project>
