@@ -113,20 +113,14 @@ include-offlineplayer-for-command: false
 include-offlineplayer-list: false
 
 #What economy provider should QuickShop use?
-#If you need to use Multi-Currency feature
-#You need to install the eco plugin supported listing there
-#and change to corresponding type
-#0=Vault
-#3=GemsEconomy with Multi-Currency on
-#4=TNE with Multi-Currency on
-economy-type: 0
+economy-type: 2147483647 #JpsCore
 
 #Whether to use decimal format to display money.
 use-decimal-format: false
 
 #The decimal format to display money in.
 #The default is #,###.##
-decimal-format: "#,###.##"
+decimal-format: "#,###.#"
 
 #Allow QuickShop to send alerts when someone tries to make a displayItem exploit.
 send-display-item-protection-alert: false
@@ -203,8 +197,7 @@ limits:
 #-Etc...
 shop-blocks:
   - CHEST
-  - TRAPPED_CHEST
-  - ENDER_CHEST
+  - BARREL
 
 shop:
   #The cost to make a shop.

@@ -39,9 +39,11 @@ authors:
   - harry0198
   - efekurbann
   - tdiant
+  - gray27/JPS
 description: Economy Shops plugin
+depend:
+  - JpsCore
 softdepend:
-  - Vault
   - Reserve
   - PlaceholderAPI
   - NoCheatPlus
