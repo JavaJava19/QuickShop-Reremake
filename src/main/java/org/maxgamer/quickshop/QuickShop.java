@@ -74,7 +74,6 @@ import org.maxgamer.quickshop.database.DatabaseManager;
 import org.maxgamer.quickshop.database.MySQLCore;
 import org.maxgamer.quickshop.database.SQLiteCore;
 import org.maxgamer.quickshop.database.SimpleDatabaseHelper;
-import org.maxgamer.quickshop.economy.Economy_JpsCore;
 import org.maxgamer.quickshop.integration.SimpleIntegrationManager;
 import org.maxgamer.quickshop.integration.worldguard.WorldGuardIntegration;
 import org.maxgamer.quickshop.listener.BlockListener;
@@ -562,9 +561,6 @@ public class QuickShop extends JavaPlugin implements QuickShopAPI {
                 case UNKNOWN:
                     setupBootError(new BootError(this.getLogger(), "Can't load the Economy provider, invaild value in config.yml."), true);
                     return false;
-                case JPS_CORE:
-                    economy = new Economy_JpsCore();
-                    Util.debugLog("Now using JpsCore economy system.");
                     break;
                 default:
                     Util.debugLog("No any economy provider selected.");
