@@ -27,7 +27,7 @@
     <properties>
         <pluginver>5.1.2.5</pluginver>
         <package>org.maxgamer.quickshop</package>
-        <developer>JavaJava19</developer>
+        <developer>JPS dev team</developer>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -42,7 +42,7 @@
     </licenses>
 
     <issueManagement>
-        <url>https://github.com/${developer}/${name}/issues</url>
+        <url>https://github.com/JavaJava19/${name}/issues</url>
         <system>GitHub Issues</system>
     </issueManagement>
 
