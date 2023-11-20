@@ -45,7 +45,7 @@ tax: 0.05
 
 #The fake player where the tax money goes to.
 #Set this to "" to disable it (Taxing will still work but not deposit to any account)
-tax-account: tax
+tax-account: ""
 
 #Turn on this option will migrate shop owner to specified account when you set a shop to unlimited.
 #It won't affect exists shops, you will need switch to unlimited again to apply it.
@@ -56,7 +56,7 @@ unlimited-shop-owner-change: false
 unlimited-shop-owner-change-account: quickshop
 
 #Whether to show taxes paid when selling to a shop
-show-tax: false
+show-tax: true
 
 #Whether to respect item flags (e.g. hide the enchantment info when item have HIDE_ENCHANTS flag).
 respect-item-flag: true
@@ -75,7 +75,7 @@ logging:
   #Should QuickShop log balance before and after when trading?
   log-balance: true
   #The target size (in MB) to split log files to the "plugins\QuickShop\logs" folder.
-  file-size: 10.0
+  file-size: 3.0
   #Log data storage location (0 to file, 1 to database)
   location: 0
 #Some economy plugins cache player balances, this sometimes causes insufficient balance when trying to use a shop
