@@ -193,7 +193,7 @@ public final class EnvironmentChecker {
     }
 
     @SneakyThrows
-    @EnvCheckEntry(name = "Signature Verify", priority = 0, stage = {EnvCheckEntry.Stage.ON_LOAD, EnvCheckEntry.Stage.ON_ENABLE})
+    /* Disable on Jps build */ //@EnvCheckEntry(name = "Signature Verify", priority = 0, stage = {EnvCheckEntry.Stage.ON_LOAD, EnvCheckEntry.Stage.ON_ENABLE})
     public ResultContainer securityVerify() {
         JarVerifyTool tool = new JarVerifyTool();
         JarFile jarFile = null;
