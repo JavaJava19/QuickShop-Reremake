@@ -844,12 +844,5 @@
             <version>0.1.5.4</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.16.0</version>
-        </dependency>
-
     </dependencies>
 </project>

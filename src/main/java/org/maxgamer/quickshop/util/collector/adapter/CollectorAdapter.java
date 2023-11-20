@@ -26,6 +26,7 @@ import org.maxgamer.quickshop.QuickShop;
 import org.maxgamer.quickshop.api.economy.AbstractEconomy;
 import org.maxgamer.quickshop.api.economy.EconomyCore;
 import org.maxgamer.quickshop.api.shop.Shop;
+import org.maxgamer.quickshop.economy.Economy_Vault;
 import org.maxgamer.quickshop.shop.ShopLoader;
 import org.maxgamer.quickshop.util.MsgUtil;
 import org.maxgamer.quickshop.util.ReflectFactory;
@@ -49,8 +50,20 @@ public class CollectorAdapter {
         Map<String, String> economy = new HashMap<>();
         try {
             EconomyCore economyCore = plugin.getEconomy();
-            economy.put("core", economyCore.getName());
-            economy.put("provider", economyCore.getPlugin().getName());
+            //noinspection SwitchStatementWithTooFewBranches
+            switch (AbstractEconomy.getNowUsing()) {
+                case VAULT:
+                    economy.put("core", "Vault");
+                    economy.put("provider", ((Economy_Vault) economyCore).getProviderName());
+                    break;
+//                case RESERVE:
+//                    economy.put("core", "Reserve");
+//                    economy.put("provider", "No details");
+//                    break;
+                default:
+                    economy.put("core", economyCore.getName());
+                    economy.put("provider", economyCore.getPlugin().getName());
+            }
         } catch (Exception e) {
             economy.put("core", "Unknown");
             economy.put("provider", "Error to getting data: " + e.getMessage());
