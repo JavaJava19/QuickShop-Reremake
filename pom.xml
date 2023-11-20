@@ -96,15 +96,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>3.3.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.11.0</version>
+                <version>3.10.1</version>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <release>8</release>
                     <encoding>UTF-8</encoding>
                     <!--Use this comments args when compiler is NullPointerException-->
                     <!--<forceJavacCompilerUse>true</forceJavacCompilerUse>-->
@@ -113,7 +114,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.5.1</version>
+                <version>3.3.0</version>
                 <configuration>
                     <finalName>QuickShop</finalName>
                     <minimizeJar>true</minimizeJar>
@@ -272,7 +273,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.6.2</version>
+                <version>3.4.1</version>
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <excludePackageNames>org.maxgamer.quickshop.nonquickshopstuff.*</excludePackageNames>
@@ -442,7 +443,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-compress</artifactId>
-            <version>1.25.0</version>
+            <version>1.22</version>
         </dependency>
         <dependency>
             <groupId>com.griefcraft.lwc</groupId>
@@ -582,7 +583,7 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>5.10.1</version>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
@@ -596,7 +597,7 @@
         <dependency>
             <groupId>com.github.seeseemelk</groupId>
             <artifactId>MockBukkit-v1.19</artifactId>
-            <version>3.3.0</version>
+            <version>3.1.0</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -613,7 +614,7 @@
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
-            <version>3.42.0.0</version>
+            <version>3.40.1.0</version>
             <scope>test</scope>
         </dependency>
         <!-- Database lib for testing-->
